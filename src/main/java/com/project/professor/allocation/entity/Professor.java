@@ -16,6 +16,7 @@ public class Professor {
 	private Long id;
 	private String name;
 
+	
 	@Column(length = 14, unique = true, nullable = false)
 	private String cpf;
 
