@@ -24,9 +24,10 @@ public class Professor {
 	private Long departmentId;
 
 	//instância de Departamento dentro de Professor.
+	//JoinColumn (coluna da chave estrangeira) é a mesma coluna relacionada ao tributo.
+	
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "department_id", updatable = false, insertable = false, nullable = false)
-	//JoinColumn (coluna da chave estrangeira) é a mesma coluna relacionada ao tributo.
 	private Department depart;
 
 	public Long getId() {
