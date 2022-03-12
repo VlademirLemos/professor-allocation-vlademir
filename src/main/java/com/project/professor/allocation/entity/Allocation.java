@@ -21,21 +21,29 @@ public class Allocation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private DayOfWeek day;
+	
+	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
 	private Date start;
+	
+	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
 	private Date end;
 	
 	@Column(name = "course_id", nullable = false)
 	private Long courseId;
+
 	@Column(name = "professor_id", nullable = false)
 	private Long professorId;
 	
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "professor_id", updatable = false, insertable = false, nullable = false)
 	private Professor profess;
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "course_id", updatable = false, insertable = false, nullable = false)
 	private Course curse;
@@ -88,4 +96,19 @@ public class Allocation {
 		this.professorId = professorId;
 	}
 
+	public Professor getProfess() {
+		return profess;
+	}
+
+	public void setProfess(Professor profess) {
+		this.profess = profess;
+	}
+
+	public Course getCurse() {
+		return curse;
+	}
+
+	public void setCurse(Course curse) {
+		this.curse = curse;
+	}
 }
